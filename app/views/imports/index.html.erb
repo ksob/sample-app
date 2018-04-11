@@ -1,0 +1,12 @@
+<p>
+  You can upload dataset here, but please note that files should be uploaded in sequence,<br />
+  starting with Menu.csv and ending with MenuPage.csv file.<br />
+</p>
+<%= form_tag "/import_files", method: "post", id: "import_files_form" do %>
+  <div>1. Menu.csv: <%= file_field_tag "menu", multiple: false %></div>
+  <div>2. Dish.csv: <%= file_field_tag "dish", multiple: false %></div>
+  <div>3. MenuItem.csv: <%= file_field_tag "menu_page", multiple: false %></div>
+  <div>4. MenuPage.csv: <%= file_field_tag "menu_item", multiple: false %></div>
+<% end %>
+
+<div id='import_status'></div>

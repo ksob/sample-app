@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Venues', venues_menus_path %>
+<%= link_to 'Events', events_menus_path %>
+
+<% @menus.each do |menu| %>
+  <%= render 'menu', menu: menu %>
+  <br>
+<% end %>

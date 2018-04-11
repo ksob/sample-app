@@ -1,0 +1,7 @@
+<%= link_to 'Venues', venues_menus_path %>
+<%= link_to 'Events', events_menus_path %>
+
+<% @events.each do |event| %>
+  <%= event %>
+  <br>
+<% end %>
