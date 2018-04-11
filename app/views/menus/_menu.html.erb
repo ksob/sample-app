@@ -1,96 +1,23 @@
-<p>
-  <strong>Name:</strong>
-  <%= menu.name %>
-</p>
-
-<p>
-  <strong>Sponsor:</strong>
-  <%= menu.sponsor %>
-</p>
-
-<p>
-  <strong>Event:</strong>
-  <%= menu.event %>
-</p>
-
-<p>
-  <strong>Venue:</strong>
-  <%= menu.venue %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= menu.place %>
-</p>
-
-<p>
-  <strong>Physical description:</strong>
-  <%= menu.physical_description %>
-</p>
-
-<p>
-  <strong>Occasion:</strong>
-  <%= menu.occasion %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= menu.notes %>
-</p>
-
-<p>
-  <strong>Call number:</strong>
-  <%= menu.call_number %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= menu.keywords %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= menu.language %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= menu.date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= menu.location %>
-</p>
-
-<p>
-  <strong>Location type:</strong>
-  <%= menu.location_type %>
-</p>
-
-<p>
-  <strong>Currency:</strong>
-  <%= menu.currency %>
-</p>
-
-<p>
-  <strong>Currency symbol:</strong>
-  <%= menu.currency_symbol %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= menu.status %>
-</p>
-
-<p>
-  <strong>Page count:</strong>
-  <%= menu.page_count %>
-</p>
-
-<p>
-  <strong>Dish count:</strong>
-  <%= menu.dish_count %>
-</p>
-
-<%= link_to 'Back', menus_path %>
+<tr>
+  <td><%= link_to menu.id, menus_path(menu) %></td>
+  <td><%= menu.name %></td>
+  <td><%= menu.sponsor %></td>
+  <td><%= menu.event %></td>
+  <td><%= menu.venue %></td>
+  <td><%= menu.place %></td>
+  <td><%= menu.physical_description %></td>
+  <td><%= menu.occasion %></td>
+  <td><%= menu.notes %></td>
+  <td><%= menu.call_number %></td>
+  <td><%= menu.keywords %></td>
+  <td><%= menu.language %></td>
+  <td><%= menu.date %></td>
+  <td><%= menu.location %></td>
+  <td><%= menu.location_type %></td>
+  <td><%= menu.currency %></td>
+  <td><%= menu.currency_symbol %></td>
+  <td><%= menu.status %></td>
+  <td><%=l menu.created_at %></td>
+  <td>
+  </td>
+</tr>

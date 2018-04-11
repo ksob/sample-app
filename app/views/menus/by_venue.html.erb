@@ -1,9 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Venues', venues_menus_path %>
-<%= link_to 'Events', events_menus_path %>
+<%- model_class = Menu -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
 
-<% @menus.each do |menu| %>
-  <%= render 'menu', menu: menu %>
-  <br>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:sponsor) %></th>
+      <th><%= model_class.human_attribute_name(:event) %></th>
+      <th><%= model_class.human_attribute_name(:venue) %></th>
+      <th><%= model_class.human_attribute_name(:place) %></th>
+      <th><%= model_class.human_attribute_name(:physical_description) %></th>
+      <th><%= model_class.human_attribute_name(:occasion) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:call_number) %></th>
+      <th><%= model_class.human_attribute_name(:keywords) %></th>
+      <th><%= model_class.human_attribute_name(:language) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:location_type) %></th>
+      <th><%= model_class.human_attribute_name(:currency) %></th>
+      <th><%= model_class.human_attribute_name(:currency_symbol) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menus.each do |menu| %>
+      <%= render 'menu', menu: menu %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Back', menus_path %>

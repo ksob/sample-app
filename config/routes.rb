@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root :to => "menus#index"
+  root :to => "menus#venues"
 
   get '/import' => 'imports#index'
 

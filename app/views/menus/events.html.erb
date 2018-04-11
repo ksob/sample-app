@@ -1,7 +1,21 @@
-<%= link_to 'Venues', venues_menus_path %>
-<%= link_to 'Events', events_menus_path %>
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Events</h1>
+</div>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              menus_path, :class => 'btn btn-default'  %>
+<br>
+<br>
 
 <% @events.each do |event| %>
   <%= event %>
   <br>
 <% end %>
+
+<br>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              menus_path, :class => 'btn btn-default'  %>
+<br>
+<br>
