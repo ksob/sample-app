@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   root :to => "menus#venues"
 
   get '/import' => 'imports#index'
+  get '/new_export' => 'exports#index'
+  get '/send_export' => 'exports#send_export'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

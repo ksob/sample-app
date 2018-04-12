@@ -15,4 +15,6 @@ class MenusController < ApplicationController
     venue = params[:venue]
     @menus = Menu.where('lower(venue) = ?', venue.downcase).all
   end
+
+
 end
