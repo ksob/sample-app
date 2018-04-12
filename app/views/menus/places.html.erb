@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-  <h1>Events</h1>
+  <h1>Places</h1>
 </div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -9,8 +9,8 @@
 <br>
 <br>
 
-<% @events.each do |event| %>
-  <%= link_to event, menus_by_event_menus_path(event: event) %>
+<% @places.each do |place| %>
+  <%= place %>
   <br>
 <% end %>
 

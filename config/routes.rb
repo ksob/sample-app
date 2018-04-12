@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     collection do
       get 'venues'
       get 'events'
+      get 'places'
       get 'by_venue.(:venue)' => :by_venue, as: 'menus_by_venue'
+      get 'by_event.(:event)' => :by_event, as: 'menus_by_event'
     end
   end
 
