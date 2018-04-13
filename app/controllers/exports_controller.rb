@@ -1,13 +1,11 @@
 class ExportsController < ApplicationController
 
   # GET /exports
-  # GET /exports.json
   def index
     @places = Menu.pluck(:place).map{ |place| place.upcase if place }.uniq
   end
 
-  # GET /exports
-  # GET /exports.json
+  # GET /send_export.json
   def send_export
     export_params = params[:export_params]
     timespan_from = Date.new export_params["timespan_from(1i)"].to_i, 
