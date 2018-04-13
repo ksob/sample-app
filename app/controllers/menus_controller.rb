@@ -4,15 +4,15 @@ class MenusController < ApplicationController
   end
 
   def events
-    @events = Menu.pluck(:event).map{ |event| event.upcase if event }.uniq
+    @events = Menu.pluck(:event).map{ |event| event.upcase if event }.reject(&:blank?).uniq
   end
 
   def venues
-    @venues = Menu.pluck(:venue).map{ |venue| venue.upcase if venue }.uniq
+    @venues = Menu.pluck(:venue).map{ |venue| venue.upcase if venue }.reject(&:blank?).uniq
   end
 
   def places
-    @places = Menu.pluck(:place).map{ |place| place.upcase if place }.uniq
+    @places = Menu.pluck(:place).map{ |place| place.upcase if place }.reject(&:blank?).uniq
   end
 
   def by_venue

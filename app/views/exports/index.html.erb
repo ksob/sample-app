@@ -5,7 +5,7 @@
 
 <%= form_tag "/send_export", :method => "get",'data-type' => 'json' do %>
   <div class="form-group">
-    <%= label_tag :places, "Places", :class => 'control-label col-lg-2' %> 
+    <%= label_tag :places, "Place", :class => 'control-label col-lg-2' %> 
     <div class="col-lg-10">
       <%= select "export_params", "place", @places, {:prompt => 'Select'}, :style => "width:300px" %>
     </div>
