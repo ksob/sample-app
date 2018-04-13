@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root :to => "menus#venues"
 
   get '/import' => 'imports#index'
+  post '/import_files' => 'imports#import_files'
   get '/new_export' => 'exports#index'
   get '/send_export' => 'exports#send_export'
 
