@@ -33,6 +33,8 @@ GEM
       activemodel (= 5.1.6)
       activesupport (= 5.1.6)
       arel (~> 8.0)
+    activerecord-import (0.22.0)
+      activerecord (>= 3.2)
     activesupport (5.1.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -79,7 +81,7 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -160,6 +162,7 @@ GEM
       tilt (>= 1.1, < 3)
     schema_to_scaffold (0.8.0)
       activesupport (>= 3.2.1)
+    smarter_csv (1.2.3)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -204,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -217,6 +221,7 @@ DEPENDENCIES
   rspec-rails (~> 3.7)
   sass-rails (~> 5.0)
   schema_to_scaffold (~> 0.8.0)
+  smarter_csv
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

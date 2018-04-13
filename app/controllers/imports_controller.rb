@@ -1,69 +1,50 @@
-require 'csv'
-
 class ImportsController < ApplicationController
   before_action :set_import, only: [:show, :edit, :update, :destroy]
 
   def import_files
+    logger_level_backup = ActiveRecord::Base.logger.level
+    ActiveRecord::Base.logger.level = :error
     idx = 0
+    records = []
     if params[:menu]
-      CSV.foreach(params[:menu].tempfile, headers: true) do |row|
-        begin
-          Menu.create! row.to_hash
-        rescue => e
-          logger.error e.message
-          logger.error e.backtrace.join("\n")
-
-          next
+      SmarterCSV.process(params[:menu].tempfile, {:chunk_size => 20000}) do |chunk|
+        records = []
+        chunk.each do |row|
+          records << Menu.new(row)
         end
-
-        idx += 1
-        break if Rails.env.development? && idx > 10
+        Menu.import(records, on_duplicate_key_ignore: true, validate: false)
       end
     elsif params[:dish]
-      CSV.foreach(params[:dish].tempfile, headers: true) do |row|
-        begin
-          Dish.create! row.to_hash
-        rescue => e
-          logger.error e.message
-          logger.error e.backtrace.join("\n")
-
-          next
+      SmarterCSV.process(params[:dish].tempfile, {:chunk_size => 20000}) do |chunk|
+        records = []
+        chunk.each do |row|
+          records << Dish.new(row)
         end
-
-        idx += 1
-        break if Rails.env.development? && idx > 10
+        Dish.import(records, on_duplicate_key_ignore: true, validate: false)
       end
     elsif params[:menu_page]
-      CSV.foreach(params[:menu_page].tempfile, headers: true) do |row|
-        begin
-          MenuPage.create! row.to_hash
-        rescue => e
-          logger.error e.message
-          logger.error e.backtrace.join("\n")
-
-          next
+      SmarterCSV.process(params[:menu_page].tempfile, {:chunk_size => 20000}) do |chunk|
+        records = []
+        chunk.each do |row|
+          records << MenuPage.new(row)
         end
-
-        idx += 1
-        break if Rails.env.development? && idx > 10
+        MenuPage.import(records, on_duplicate_key_ignore: true, validate: false)
       end
     elsif params[:menu_item]
-      CSV.foreach(params[:menu_item].tempfile, headers: true) do |row|
-        begin
-          MenuItem.create! row.to_hash
-        rescue => e
-          logger.error e.message
-          logger.error e.backtrace.join("\n")
-
-          next
+      SmarterCSV.process(params[:menu_item].tempfile, {:chunk_size => 20000}) do |chunk|
+        records = []
+        chunk.each do |row|
+          records << MenuItem.new(row)
         end
-
-        idx += 1
-        break if Rails.env.development? && idx > 10
+        MenuItem.import(records, on_duplicate_key_ignore: true, validate: false)
       end
     end
 
     head :ok
+  rescue => e
+    logger.error e.message
+  ensure
+    ActiveRecord::Base.logger.level = logger_level_backup
   end
 
 

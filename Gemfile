@@ -59,3 +59,7 @@ gem 'jquery.fileupload-rails', "~> 1.11.0"
 gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
+
+gem 'activerecord-import'
+
+gem 'smarter_csv'
