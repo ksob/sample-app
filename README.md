@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+This is a sample Ruby on Rails application.
 
 * Database creation
+```bash
+rails db:setup
+```
 
-* Database initialization
+* Running
+```bash
+rails server
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Running test suite
+```bash
+bundle exec rspec
+```
