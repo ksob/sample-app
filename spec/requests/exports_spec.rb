@@ -12,9 +12,9 @@ RSpec.describe 'Exports', type: :request do
 
     context 'when selecting filters that matches menu at "HOT SPRINGS, AR"' do
       before do 
-        query_str = {"export_params" => {"place"=>'"HOT SPRINGS, AR"', "timespan_from(1i)"=>"1899", 
-          "timespan_from(2i)"=>"4", "timespan_from(3i)"=>"13", "timespan_to(1i)"=>"2018", 
-          "timespan_to(2i)"=>"4", "timespan_to(3i)"=>"13"} }.to_query + "&utf8=%E2%9C%93&format=json&button="
+        query_str = {"export_params" => {"place"=>'"HOT SPRINGS, AR"', "from_date(1i)"=>"1899", 
+          "from_date(2i)"=>"4", "from_date(3i)"=>"13", "to_date(1i)"=>"2018", 
+          "to_date(2i)"=>"4", "to_date(3i)"=>"13"} }.to_query + "&utf8=%E2%9C%93&format=json&button="
         get '/send_export?' + query_str 
       end
 
@@ -37,9 +37,9 @@ RSpec.describe 'Exports', type: :request do
 
     context 'when selecting filters that do not matche any menu' do
       before do 
-        query_str = {"export_params" => {"place"=>'"HOT SPRINGS, AR"', "timespan_from(1i)"=>"2018", 
-          "timespan_from(2i)"=>"4", "timespan_from(3i)"=>"13", "timespan_to(1i)"=>"2018", 
-          "timespan_to(2i)"=>"4", "timespan_to(3i)"=>"13"} }.to_query + "&utf8=%E2%9C%93&format=json&button="
+        query_str = {"export_params" => {"place"=>'"HOT SPRINGS, AR"', "from_date(1i)"=>"2018", 
+          "from_date(2i)"=>"4", "from_date(3i)"=>"13", "to_date(1i)"=>"2018", 
+          "to_date(2i)"=>"4", "to_date(3i)"=>"13"} }.to_query + "&utf8=%E2%9C%93&format=json&button="
         get '/send_export?' + query_str 
       end
 
