@@ -9,13 +9,13 @@ class ImportsController < ApplicationController
     ActiveRecord::Base.logger.level = :error
 
     if params[:menu]
-      CSVImporter.process(params[:menu].tempfile, model_name: Menu.class)
+      CSVImporter.process(params[:menu].tempfile, "Menu")
     elsif params[:dish]
-      CSVImporter.process(params[:dish].tempfile, model_name: Dish.class)
+      CSVImporter.process(params[:dish].tempfile, "Dish")
     elsif params[:menu_page]
-      CSVImporter.process(params[:menu_page].tempfile, model_name: MenuPage.class)
+      CSVImporter.process(params[:menu_page].tempfile, "MenuPage")
     elsif params[:menu_item]
-      CSVImporter.process(params[:menu_item].tempfile, model_name: MenuItem.class)
+      CSVImporter.process(params[:menu_item].tempfile, "MenuItem")
     end
 
     head :ok

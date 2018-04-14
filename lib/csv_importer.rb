@@ -5,7 +5,7 @@ module CSVImporter
     SmarterCSV.process(file, chunk_size: 20000) do |chunk|
       records = []
       chunk.each do |row|
-        records << Menu.new(row)
+        records << eval("#{model_name}.new(row)")
       end
 
       eval("#{model_name}.send :import, records, on_duplicate_key_ignore: true, validate: false")
