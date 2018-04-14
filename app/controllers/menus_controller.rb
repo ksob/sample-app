@@ -1,30 +1,30 @@
+# frozen_string_literal: true
+
 class MenusController < ApplicationController
-
-  # GET /events  
+  # GET /events
   def events
-    @events = Menu.pluck(:event).map{ |event| event.upcase if event }.reject(&:blank?).uniq
+    @events = Menu.pluck(:event).map { |event| event.upcase if event }.reject(&:blank?).uniq
   end
 
-  # GET /venues 
+  # GET /venues
   def venues
-    @venues = Menu.pluck(:venue).map{ |venue| venue.upcase if venue }.reject(&:blank?).uniq
+    @venues = Menu.pluck(:venue).map { |venue| venue.upcase if venue }.reject(&:blank?).uniq
   end
 
-  # GET /places 
+  # GET /places
   def places
-    @places = Menu.pluck(:place).map{ |place| place.upcase if place }.reject(&:blank?).uniq
+    @places = Menu.pluck(:place).map { |place| place.upcase if place }.reject(&:blank?).uniq
   end
 
-  # GET /by_venue 
+  # GET /by_venue
   def by_venue
     venue = params[:venue]
-    @menus = Menu.where('lower(venue) = ?', venue.downcase).all
+    @menus = Menu.where("lower(venue) = ?", venue.downcase).all
   end
 
   # GET /by_event
   def by_event
     event = params[:event]
-    @menus = Menu.where('lower(event) = ?', event.downcase).all
+    @menus = Menu.where("lower(event) = ?", event.downcase).all
   end
-
 end

@@ -1,14 +1,15 @@
-class ImportsController < ApplicationController
+# frozen_string_literal: true
 
+class ImportsController < ApplicationController
   include CSVImporter
 
   # POST /import_files
   def import_files
     logger_level_backup = ActiveRecord::Base.logger.level
     ActiveRecord::Base.logger.level = :error
-    
+
     if params[:menu]
-      CSVImporter.process(params[:menu].tempfile, model_name: Menu.class)      
+      CSVImporter.process(params[:menu].tempfile, model_name: Menu.class)
     elsif params[:dish]
       CSVImporter.process(params[:dish].tempfile, model_name: Dish.class)
     elsif params[:menu_page]
@@ -27,6 +28,5 @@ class ImportsController < ApplicationController
 
   # GET /imports
   def index
-    
   end
 end
